@@ -17,8 +17,8 @@ body {
     background-color: rgba(248, 250, 252, 0.8); /* Light gray background with transparency */
     color: var(--umak-text-dark);
     margin: 0;
-    /* Corrected padding to account for fixed header and protruding logo */
-    padding-top: calc(var(--header-height) + var(--logo-protrusion) + 2rem); /* Header + protrusion + desired gap */
+    /* Corrected padding: Only account for the header's height at the top of the body. */
+    padding-top: var(--header-height);
     padding-bottom: var(--footer-height);
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@ body {
     justify-content: flex-end; /* Push content to the right, logo is absolute */
     align-items: center;
     position: fixed; /* Make it sticky */
-    top: 0;
+    top: 0; /* Ensures it's at the very top of the viewport */
     width: 100%;
     z-index: 50; /* Ensure it stays on top */
     height: var(--header-height); /* Fixed height */
@@ -94,8 +94,9 @@ body {
 main {
     flex-grow: 1;
     padding: 1.5rem;
-    /* min-height calculation needs to be adjusted based on body padding */
-    min-height: calc(100vh - (var(--header-height) + var(--logo-protrusion) + 2rem) - var(--footer-height));
+    /* Add margin-top to push main content down, accounting for logo protrusion and desired gap */
+    margin-top: calc(var(--logo-protrusion) + 2rem);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--logo-protrusion) - 2rem); /* Adjusted min-height calculation */
     box-sizing: border-box;
     background-color: var(--umak-bg-light); /* Added solid background to main content area */
     border-radius: 0.75rem; /* Match other rounded elements */
@@ -105,8 +106,8 @@ main {
 .main-schedule-title-container {
     text-align: center;
     margin-bottom: 2rem;
-    position: relative; /* Ensure it respects z-index if needed */
-    z-index: 1; /* Keep it above the main background, but below header/modal */
+    position: relative;
+    z-index: 1;
 }
 
 .main-schedule-title-line1 {
