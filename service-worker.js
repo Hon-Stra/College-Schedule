@@ -1,4 +1,4 @@
-const CACHE_NAME = 'college-schedule-app-v1';
+const CACHE_NAME = 'college-schedule-app-v2';
 const urlsToCache = [
     '/',
     '/index.html',
