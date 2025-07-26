@@ -108,7 +108,7 @@ main {
 }
 
 .main-schedule-title-line1 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Adjusted: Smaller font size */
     font-weight: 700;
     line-height: 1; /* Adjusted: Tighter line spacing */
     color: var(--umak-text-dark);
@@ -116,7 +116,7 @@ main {
 }
 
 .main-schedule-title-line2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Adjusted: Smaller font size */
     font-weight: 600;
     color: var(--umak-text-dark);
     display: block;
