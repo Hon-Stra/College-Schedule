@@ -6,6 +6,10 @@
 // This allows for modular organization of schedule data.
 import { allSchedules } from './data.js';
 
+// Define the base path for GitHub Pages if applicable
+// IMPORTANT: Replace 'College-Schedule' with your actual repository name if it's different.
+const BASE_PATH = '/College-Schedule'; // Your GitHub repository name
+
 /**
  * Helper function to convert a time string (e.g., "09:00 AM") to minutes from midnight.
  * This is useful for sorting courses chronologically.
@@ -162,7 +166,6 @@ function renderSimplifiedSchedule(scheduleId, selectedDayIdx) {
         daySelector.appendChild(dayButton);
     });
 
-    // Filter and sort courses for the selected day
     const dayName = selectedSchedule.days[currentDayIndex];
     const coursesForDay = selectedSchedule.courses
         .filter(course => course.day === dayName)
@@ -421,7 +424,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // This enables offline capabilities and installability.
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
+            // Register the service worker with the correct scope for GitHub Pages
+            // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
+            navigator.serviceWorker.register(`${BASE_PATH}/service-worker.js`, { scope: `${BASE_PATH}/` })
                 .then(registration => {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 })
