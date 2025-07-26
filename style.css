@@ -92,8 +92,8 @@ main {
     flex-grow: 1;
     padding: 1.5rem;
     /* Adjusted margin-top to bring title closer to the top */
-    margin-top: calc(var(--header-height) + var(--logo-protrusion) + 0.25rem); /* Reduced spacing */
-    min-height: calc(100vh - (var(--header-height) + var(--logo-protrusion) + 0.25rem) - var(--footer-height)); /* Adjusted min-height calculation */
+    margin-top: calc(var(--header-height) + var(--logo-protrusion) + 0.15rem); /* Reduced spacing even more */
+    min-height: calc(100vh - (var(--header-height) + var(--logo-protrusion) + 0.15rem) - var(--footer-height)); /* Adjusted min-height calculation */
     box-sizing: border-box;
     background-color: var(--umak-bg-light); /* Added solid background to main content area */
     border-radius: 0.75rem; /* Match other rounded elements */
@@ -108,7 +108,7 @@ main {
 }
 
 .main-schedule-title-line1 {
-    font-size: 2.5rem; /* Adjusted: Smaller font size */
+    font-size: 2rem; /* Adjusted: Significantly smaller font size */
     font-weight: 700;
     line-height: 1; /* Adjusted: Tighter line spacing */
     color: var(--umak-text-dark);
@@ -116,11 +116,11 @@ main {
 }
 
 .main-schedule-title-line2 {
-    font-size: 1.8rem; /* Adjusted: Smaller font size */
+    font-size: 1.5rem; /* Adjusted: Significantly smaller font size */
     font-weight: 600;
     color: var(--umak-text-dark);
     display: block;
-    margin-top: 0.25rem; /* Adjusted: Less margin after line 1 */
+    margin-top: 0.15rem; /* Adjusted: Less margin after line 1 */
 }
 
 
