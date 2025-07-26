@@ -5,10 +5,10 @@
     --umak-yellow: #FFC107; /* Amber/Gold */
     --umak-text-dark: #334155;
     --umak-bg-light: #f8fafc;
-    --header-height: 120px; /* Approximate height of the header bar */
-    --footer-height: 100px; /* Approximate height of the footer bar */
-    --logo-protrusion: 50px; /* How much the logo protrudes below the header */
-    --logo-size: 100px; /* New larger logo size */
+    --header-height: 80px; /* Adjusted: Thinner top bar */
+    --footer-height: 80px; /* Adjusted: Thinner bottom bar */
+    --logo-protrusion: 30px; /* Adjusted: Less protrusion for thinner bar */
+    --logo-size: 80px; /* Adjusted: Smaller logo for thinner bar */
 }
 
 /* Global styles and custom CSS for the schedule app */
@@ -17,7 +17,6 @@ body {
     background-color: rgba(248, 250, 252, 0.8); /* Light gray background with transparency */
     color: var(--umak-text-dark);
     margin: 0;
-    /* Removed padding-top from body; header will stick to top:0, main will push content down */
     padding-top: 0; /* Ensures no space above fixed header */
     padding-bottom: var(--footer-height);
     display: flex;
@@ -36,7 +35,7 @@ body {
 .app-header {
     background-color: var(--umak-blue-dark);
     color: white;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem; /* Adjusted padding for thinner bar */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
@@ -59,8 +58,8 @@ body {
     border-radius: 50%;
     object-fit: cover;
     /* Removed padding and background-color to remove white border */
-    /* padding: 5px; */ /* This line was commented out to remove the white border */
-    /* background-color: white; */ /* This line was commented out to remove the white border */
+    /* padding: 5px; */
+    /* background-color: white; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     position: absolute;
     left: 50%;
@@ -72,17 +71,17 @@ body {
 .schedule-short-id-button {
     background-color: var(--umak-yellow);
     color: var(--umak-blue-dark);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem; /* Adjusted padding for thinner button */
     border-radius: 0.5rem;
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 1rem; /* Slightly smaller font for thinner button */
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
+    height: 32px; /* Adjusted: Thinner button */
     margin-right: 1.5rem;
 }
 
@@ -95,9 +94,9 @@ body {
 main {
     flex-grow: 1;
     padding: 1.5rem;
-    /* Adjusted margin-top to account for header height, logo protrusion, and desired gap */
-    margin-top: calc(var(--header-height) + var(--logo-protrusion) + 1rem); /* Reduced from 2rem to 1rem */
-    min-height: calc(100vh - (var(--header-height) + var(--logo-protrusion) + 1rem) - var(--footer-height)); /* Adjusted min-height calculation */
+    /* Adjusted margin-top to bring title closer to the top */
+    margin-top: calc(var(--header-height) + var(--logo-protrusion) + 0.5rem); /* Reduced from 1rem to 0.5rem */
+    min-height: calc(100vh - (var(--header-height) + var(--logo-protrusion) + 0.5rem) - var(--footer-height)); /* Adjusted min-height calculation */
     box-sizing: border-box;
     background-color: var(--umak-bg-light); /* Added solid background to main content area */
     border-radius: 0.75rem; /* Match other rounded elements */
@@ -317,7 +316,7 @@ main {
 .app-footer {
     background-color: var(--umak-blue-dark);
     color: white;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem; /* Adjusted padding for thinner bar */
     text-align: center;
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
@@ -333,12 +332,12 @@ main {
 }
 
 .toggle-mode-button {
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem; /* Adjusted padding for thinner button */
     background-color: var(--umak-yellow);
     color: var(--umak-blue-dark);
     border-radius: 0.75rem;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.1rem; /* Slightly smaller font for thinner button */
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     cursor: pointer;
     border: none;
