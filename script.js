@@ -156,7 +156,6 @@ function renderSimplifiedSchedule(scheduleId, selectedDayIdx) {
             dayButton.classList.add('active');
         }
 
-        // Add click listener for day buttons
         dayButton.addEventListener('click', () => {
             renderSimplifiedSchedule(scheduleId, index);
             // Auto-scroll to the schedule display area when a day is clicked
