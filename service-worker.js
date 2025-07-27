@@ -1,5 +1,5 @@
 // Increment the CACHE_NAME to force the service worker to fetch new assets
-const CACHE_NAME = 'college-schedule-app-v11'; // Increment cache name to ensure update
+const CACHE_NAME = 'college-schedule-app-v12'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
 const REPO_NAME = '/College-Schedule';
 
@@ -28,7 +28,7 @@ const urlsToCache = [
     `${REPO_NAME}/umak-app-icon-192.png`,
     `${REPO_NAME}/umak-app-icon-512.png`,
     `${REPO_NAME}/umak-app-icon-maskable.png`,
-    `${REPO_NAME}/umak-app-icon-1024.png`, /* Assuming this is the 1470x1470 icon file */
+    `${REPO_NAME}/umak-app-icon-1024.png`, /* Assuming this is your 1470x1470 icon file */
     `${REPO_NAME}/favicon.ico` // Added favicon to cache
 ];
 
