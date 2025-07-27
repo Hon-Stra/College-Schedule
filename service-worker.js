@@ -1,5 +1,5 @@
 // Increment the CACHE_NAME to force the service worker to fetch new assets
-const CACHE_NAME = 'college-schedule-app-v6'; // Increment cache name to ensure update
+const CACHE_NAME = 'college-schedule-app-v7'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
 const REPO_NAME = '/College-Schedule';
 
@@ -9,7 +9,7 @@ const urlsToCache = [
     `${REPO_NAME}/style.css`,
     `${REPO_NAME}/script.js`,
     `${REPO_NAME}/data.js`,
-    `${REPO_NAME}/tailwind.css`, // CHANGED: Local Tailwind CSS
+    `${REPO_NAME}/tailwind.css`, // Local Tailwind CSS
     // Updated paths for individual schedule files
     `${REPO_NAME}/schedules/ioa-bsa-1-1st-2025-2026.js`,
     `${REPO_NAME}/schedules/eng-ee-1-spring-2026.js`,
@@ -27,7 +27,8 @@ const urlsToCache = [
     `${REPO_NAME}/umak-app-icon-168.png`,
     `${REPO_NAME}/umak-app-icon-192.png`,
     `${REPO_NAME}/umak-app-icon-512.png`,
-    `${REPO_NAME}/umak-app-icon-maskable.png`
+    `${REPO_NAME}/umak-app-icon-maskable.png`,
+    `${REPO_NAME}/favicon.ico` // Added favicon to cache
 ];
 
 self.addEventListener('install', (event) => {
@@ -40,6 +41,10 @@ self.addEventListener('install', (event) => {
             })
             .catch(error => {
                 console.error('Service Worker: Failed to cache during install:', error);
+                // Log the specific request that failed if possible
+                if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+                    console.error('This often means a resource URL in urlsToCache is incorrect or inaccessible due to CORS.');
+                }
             })
     );
 });

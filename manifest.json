@@ -2,7 +2,7 @@
     "name": "UMak Schedule",
     "short_name": "UMakSched",
     "description": "Your personalized University of Makati class schedule.",
-    "start_url": "/",
+    "start_url": "/College-Schedule/",
     "display": "standalone",
     "background_color": "#002D62",
     "theme_color": "#002D62",
