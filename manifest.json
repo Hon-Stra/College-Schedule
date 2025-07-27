@@ -1,6 +1,6 @@
 {
     "name": "UMak Schedule",
-    "short_name": "UMakSched",
+    "short_name": "UMak Sched",
     "description": "Your personalized University of Makati class schedule.",
     "start_url": "/College-Schedule/",
     "display": "standalone",
