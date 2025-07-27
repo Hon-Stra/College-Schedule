@@ -1,5 +1,5 @@
 // Increment the CACHE_NAME to force the service worker to fetch new assets
-const CACHE_NAME = 'college-schedule-app-v10'; // Increment cache name to ensure update
+const CACHE_NAME = 'college-schedule-app-v11'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
 const REPO_NAME = '/College-Schedule';
 
