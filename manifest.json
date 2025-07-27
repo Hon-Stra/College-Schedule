@@ -1,6 +1,6 @@
 {
     "name": "UMak Schedule",
-    "short_name": "UMak Sched",
+    "short_name": "UMakSched",
     "description": "Your personalized University of Makati class schedule.",
     "start_url": "/College-Schedule/",
     "display": "standalone",
@@ -47,6 +47,11 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
+        },
+        {
+            "src": "umak-app-icon-1024.png", /* NEW: High-resolution icon */
+            "sizes": "1470x1470", /* Updated to 1470x1470 */
+            "type": "image/png"
         }
     ]
 }

@@ -1,5 +1,5 @@
 // Increment the CACHE_NAME to force the service worker to fetch new assets
-const CACHE_NAME = 'college-schedule-app-v9'; // Increment cache name to ensure update
+const CACHE_NAME = 'college-schedule-app-v10'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
 const REPO_NAME = '/College-Schedule';
 
@@ -28,6 +28,7 @@ const urlsToCache = [
     `${REPO_NAME}/umak-app-icon-192.png`,
     `${REPO_NAME}/umak-app-icon-512.png`,
     `${REPO_NAME}/umak-app-icon-maskable.png`,
+    `${REPO_NAME}/umak-app-icon-1024.png`, /* Assuming this is the 1470x1470 icon file */
     `${REPO_NAME}/favicon.ico` // Added favicon to cache
 ];
 
@@ -41,7 +42,6 @@ self.addEventListener('install', (event) => {
             })
             .catch(error => {
                 console.error('Service Worker: Failed to cache during install:', error);
-                // Log the specific request that failed if possible
                 if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
                     console.error('This often means a resource URL in urlsToCache is incorrect or inaccessible due to CORS.');
                 }
@@ -59,7 +59,6 @@ self.addEventListener('fetch', (event) => {
                 }
                 console.log('Service Worker: Fetching from network:', event.request.url);
                 return fetch(event.request).catch(() => {
-                    // Fallback for offline pages, consider a more robust offline page
                     console.log('Service Worker: Fetch failed, serving offline fallback.');
                     return new Response('<h1>You are offline</h1><p>Please connect to the internet to view this content.</p>', {
                         headers: { 'Content-Type': 'text/html' }
@@ -77,7 +76,6 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
-                        // Delete old caches
                         console.log('Service Worker: Deleting old cache:', cacheName);
                         return caches.delete(cacheName);
                     }
@@ -85,6 +83,5 @@ self.addEventListener('activate', (event) => {
             );
         })
     );
-    // Ensure the service worker takes control of all clients immediately after activation.
     event.waitUntil(self.clients.claim());
 });
