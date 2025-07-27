@@ -233,7 +233,7 @@ function renderTableSchedule(scheduleId) {
         mainScheduleTitleLine2.textContent = '';
         scheduleShortIdButton.textContent = '';
         daySelector.innerHTML = '';
-        daySelector.classList.add('hidden');
+        daySelector.classList.add('hidden'); // Ensure day selector is hidden
         return;
     }
 
@@ -241,34 +241,27 @@ function renderTableSchedule(scheduleId) {
     mainScheduleTitleLine1.textContent = selectedSchedule.displayTitleLine1;
     mainScheduleTitleLine2.textContent = selectedSchedule.displayTitleLine2;
     scheduleShortIdButton.textContent = selectedSchedule.shortId;
-    daySelector.classList.add('hidden'); // Hide day selector in table mode
+    daySelector.classList.add('hidden'); // Bug fix: Ensure day selector is hidden in table mode
 
-    // Collect all unique start and end times to create table rows
     const allUniqueTimesForSchedule = new Set();
     selectedSchedule.courses.forEach(course => {
         allUniqueTimesForSchedule.add(course.time);
         allUniqueTimesForSchedule.add(course.endTime);
     });
-    // Sort unique times chronologically
     const sortedUniqueTimesForSchedule = Array.from(allUniqueTimesForSchedule).sort((a, b) => timeToMinutes(a) - timeToMinutes(b));
 
-    // Determine time slots for table rows. Only include times that are actual course start times
-    // or the very first time in the sorted list. This prevents unnecessary empty rows.
     const scheduleTimeSlots = sortedUniqueTimesForSchedule.filter((time, index, arr) => {
         const isCourseStartTime = selectedSchedule.courses.some(course => course.time === time);
         const isFirstTime = (index === 0);
         return isCourseStartTime || isFirstTime;
     });
 
-    // Fallback: if no courses, but there are times, ensure at least some time slots are shown
     if (scheduleTimeSlots.length === 0 && selectedSchedule.courses.length > 0) {
         scheduleTimeSlots.push(...Array.from(new Set(selectedSchedule.courses.map(c => c.time))).sort((a, b) => timeToMinutes(a) - timeToMinutes(b)));
     }
 
-    // Initialize a 2D array to keep track of booked cells for rowspan logic
     const bookedCells = Array(scheduleTimeSlots.length).fill(0).map(() => Array(selectedSchedule.days.length).fill(false));
 
-    // Start building the HTML table
     let tableHTML = `
         <table class="schedule-table">
             <thead>
@@ -276,10 +269,9 @@ function renderTableSchedule(scheduleId) {
                     <th class="rounded-tl-lg">Time</th>
     `;
     const now = new Date();
-    const currentDayOfWeek = now.getDay(); // 0 for Sunday, 1 for Monday, etc.
+    const currentDayOfWeek = now.getDay();
     const dayNamesFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    // Add day headers to the table
     selectedSchedule.days.forEach((day, dayIndex) => {
         const isCurrentDay = dayNamesFull.indexOf(day) === currentDayOfWeek;
         tableHTML += `<th class="${isCurrentDay ? 'current-day-table-header' : ''} ${dayIndex === selectedSchedule.days.length - 1 ? 'rounded-tr-lg' : ''}">${day}</th>`;
@@ -292,44 +284,36 @@ function renderTableSchedule(scheduleId) {
 
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-    // Populate table rows and cells
     scheduleTimeSlots.forEach((time, rowIndex) => {
         const timeSlotMinutes = timeToMinutes(time);
-        // Determine if this row represents the current time slot
         const isCurrentTimeRow = (timeSlotMinutes <= currentMinutes &&
                                   (rowIndex + 1 < scheduleTimeSlots.length ? timeToMinutes(scheduleTimeSlots[rowIndex + 1]) : Infinity) > currentMinutes);
 
         tableHTML += `<tr class="${isCurrentTimeRow ? 'current-time-row-table' : ''}"><td data-label="Time">${time}</td>`;
 
         selectedSchedule.days.forEach((day, colIndex) => {
-            // If this cell is already part of a multi-row course (due to rowspan), skip it
             if (bookedCells[rowIndex][colIndex]) {
                 return;
             }
 
-            // Find courses that start at this specific time and day
             const coursesStartingAtSlot = selectedSchedule.courses.filter(c => c.time === time && c.day === day);
 
             if (coursesStartingAtSlot.length > 0) {
-                const course = coursesStartingAtSlot[0]; // Assuming one course per slot for simplicity
+                const course = coursesStartingAtSlot[0];
                 const startIdx = scheduleTimeSlots.indexOf(course.time);
                 const endIdx = scheduleTimeSlots.indexOf(course.endTime);
-                // Calculate rowspan based on the duration of the course
                 const rowspan = (endIdx !== -1 && startIdx !== -1) ? (endIdx - startIdx) : 1;
 
-                const courseColor = getCourseColor(course.name); // Get consistent color
+                const courseColor = getCourseColor(course.name);
 
-                // Mark cells as booked to prevent them from being rendered again
                 for (let i = 0; i < rowspan; i++) {
                     if (rowIndex + i < bookedCells.length) {
                         bookedCells[rowIndex + i][colIndex] = true;
                     }
                 }
 
-                // Determine if this cell should be highlighted as the current time/day
                 const isCurrentCellHighlight = (isCurrentTimeRow && dayNamesFull.indexOf(day) === currentDayOfWeek);
 
-                // Add course content to the table cell
                 tableHTML += `
                     <td data-label="${day}" rowspan="${rowspan}" class="${isCurrentCellHighlight ? 'current-time-cell-table' : ''}">
                         <div class="table-schedule-cell-content" style="background-color: ${courseColor};">
@@ -340,7 +324,6 @@ function renderTableSchedule(scheduleId) {
                     </td>
                 `;
             } else {
-                // Render an empty cell if no course is scheduled for this time slot and day
                 tableHTML += `<td data-label="${day}"></td>`;
             }
         });
@@ -351,10 +334,11 @@ function renderTableSchedule(scheduleId) {
             </tbody>
         </table>
     `;
-    scheduleDisplay.innerHTML = tableHTML; // Update the schedule display area
-    scheduleDisplay.classList.remove('schedule-day-container'); // Remove simplified mode styles
-    scheduleDisplay.classList.add('schedule-table', 'overflow-x-auto'); // Apply table mode specific styles
+    scheduleDisplay.innerHTML = tableHTML;
+    scheduleDisplay.classList.remove('schedule-day-container');
+    scheduleDisplay.classList.add('schedule-table', 'overflow-x-auto');
 }
+
 
 /**
  * Renders the schedule based on the currently selected mode ('simplified' or 'table').
