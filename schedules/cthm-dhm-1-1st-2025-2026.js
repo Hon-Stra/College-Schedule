@@ -1,5 +1,5 @@
 // schedules/ioa-bsa-1-1st-2025-2026.js
-export const firstSemSchedule = {
+export const dhmfirstsemschedule = {
     id: 'cthm-dhm-1-1st-2025-2026', // Updated ID to match file name
     name: 'First Semester - A.Y. 2025-2026',
     displayTitleLine1: 'DHM-1 | 1st Semester',
