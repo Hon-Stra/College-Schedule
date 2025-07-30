@@ -3,7 +3,7 @@ export const dhmfirstsemschedule = {
     id: 'cthm-dhm-1-1st-year-1', // Updated ID to match file name
     name: 'CTHM 1st Semester - Year 1',
     displayTitleLine1: 'DHM-1 | 1st Semester',
-    displayTitleLine2: 'A.Y. 2025-2026',
+    displayTitleLine2: 'Year 1, A.Y. 2025-2026',
     shortId: 'CTHM-DHM-1',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     courses: [
