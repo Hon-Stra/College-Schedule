@@ -1,5 +1,5 @@
 // schedules/cthm-dhm-1-1st-2025-2026.js
-export const bsbamfirstsemschedule = {
+export const bsbamYear3FirstSemSchedule = {
     id: 'bsba-m-d-1stsem-year-3', // You will edit this ID to match the new schedule
     name: 'BSBA-M-D 1st Semester - Year 3', // You will edit this name
     displayTitleLine1: 'BSBA-M-D | 1st Semester', // You will edit this display title
