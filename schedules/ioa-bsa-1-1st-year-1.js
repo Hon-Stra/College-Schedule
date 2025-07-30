@@ -1,9 +1,9 @@
 // schedules/ioa-bsa-1-1st-2025-2026.js
 export const firstSemSchedule = {
-    id: 'ioa-bsa-1-1st-2025-2026', // Updated ID to match file name
+    id: 'ioa-bsa-1-1st-year-1', // Updated ID to match file name
     name: 'First Semester - A.Y. 2025-2026',
     displayTitleLine1: 'BSA-1 | 1st Semester',
-    displayTitleLine2: 'A.Y. 2025-2026',
+    displayTitleLine2: 'Year 1, A.Y. 2025-2026',
     shortId: 'IOA-BSA-1',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     courses: [
