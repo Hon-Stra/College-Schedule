@@ -26,7 +26,6 @@ const urlsToCache = [
     `${REPO_NAME}/umak-app-icon-72.png`,
     `${REPO_NAME}/umak-app-icon-96.png`,
     `${REPO_NAME}/umak-app-icon-144.png`,
-    `${REPO_NAME}/umak-app-icon-168.png`,
     `${REPO_NAME}/umak-app-icon-192.png`,
     `${REPO_NAME}/umak-app-icon-512.png`,
     `${REPO_NAME}/umak-app-icon-maskable.png`,
