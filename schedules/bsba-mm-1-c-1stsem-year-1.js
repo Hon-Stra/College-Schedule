@@ -3,7 +3,7 @@ export const bsbammfirstsemsched = {
   name: 'BSBA-MM-1-C 1st Semester',
   displayTitleLine1: 'BSBA-MM-1-C | 1st Semester',
   displayTitleLine2: 'A.Y. 2025-2026',
-  shortId: 'IOA-BSBA-MM-1-C',
+  shortId: 'BA-MM-1-C',
   days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   courses: [
     { time: '03:00 PM', endTime: '04:30 PM', day: 'Monday', name: 'PURPOSIVE COMMUNICATION', room: 'VR' },
