@@ -1,3 +1,4 @@
+// schedules/bsba-mm-1-c-1stsem-year-1.js
 export const bsbammfirstsemsched = {
   id: 'bsba-mm-1-c-1stsem-year-1',
   name: 'BSBA-MM-1-C 1st Semester',
