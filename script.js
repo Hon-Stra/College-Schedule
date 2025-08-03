@@ -89,6 +89,7 @@ function populateScheduleList(schedulesToDisplay) {
         // Add click listener to select a schedule from the modal
         listItem.addEventListener('click', () => {
             currentScheduleId = schedule.id;
+            saveScheduleToLocalStorage(currentScheduleId); // Save the new schedule ID
             closeScheduleModal(); // Close the modal
             renderCurrentModeSchedule(); // Render the newly selected schedule
         });
@@ -355,6 +356,22 @@ function renderCurrentModeSchedule() {
     }
 }
 
+/**
+ * Saves the current schedule ID to local storage.
+ * @param {string} scheduleId - The ID of the schedule to save.
+ */
+function saveScheduleToLocalStorage(scheduleId) {
+    localStorage.setItem('lastSelectedScheduleId', scheduleId);
+}
+
+/**
+ * Loads the saved schedule ID from local storage.
+ * @returns {string | null} The saved schedule ID, or null if not found.
+ */
+function loadScheduleFromLocalStorage() {
+    return localStorage.getItem('lastSelectedScheduleId');
+}
+
 // --- Event Listeners ---
 
 // Event listener for the toggle mode button (SIMPLE MODE / TABLE MODE)
@@ -386,9 +403,18 @@ scheduleSearchInput.addEventListener('input', (event) => {
 
 // --- Initial Application Load Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if there are any schedules available
+    const savedScheduleId = loadScheduleFromLocalStorage();
+
     if (allSchedules.length > 0) {
-        currentScheduleId = allSchedules[0].id; // Set the first schedule as default
+        // If a saved schedule ID exists and is valid, use it. Otherwise, default to the first schedule.
+        const scheduleToLoad = allSchedules.find(s => s.id === savedScheduleId);
+        if (scheduleToLoad) {
+            currentScheduleId = savedScheduleId;
+        } else {
+            currentScheduleId = allSchedules[0].id; // Fallback to the first schedule
+            saveScheduleToLocalStorage(currentScheduleId); // Save the fallback schedule
+        }
+
         toggleModeBtn.textContent = 'SIMPLE MODE'; // Set initial button text
         renderCurrentModeSchedule(); // Render the initial schedule
     } else {

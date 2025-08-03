@@ -1,3 +1,4 @@
+// service-worker.js
 // Increment the CACHE_NAME to force the service worker to fetch new assets
 const CACHE_NAME = 'college-schedule-app-v26'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
@@ -35,6 +36,8 @@ const urlsToCache = [
 
 self.addEventListener('install', (event) => {
     console.log('Service Worker: Install event triggered.');
+    // Force the service worker to activate immediately.
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
