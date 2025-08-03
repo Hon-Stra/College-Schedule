@@ -1,6 +1,6 @@
 // service-worker.js
 // Increment the CACHE_NAME to force the service worker to fetch new assets
-const CACHE_NAME = 'college-schedule-app-v26'; // Increment cache name to ensure update
+const CACHE_NAME = 'college-schedule-app-v27'; // Increment cache name to ensure update
 // IMPORTANT: Replace 'College-Schedule' with your actual repository name.
 const REPO_NAME = '/College-Schedule';
 
@@ -16,6 +16,7 @@ const urlsToCache = [
     `${REPO_NAME}/schedules/eng-ee-1-spring-2026.js`,
     `${REPO_NAME}/schedules/cthm-dhm-1-1stsem-year-1.js`,
     `${REPO_NAME}/schedules/bsba-m-d-1stsem-year-3.js`,
+    `${REPO_NAME}/schedules/bsba-mm-1-c-1stsem-year-1`,
     // Add any new schedule files here, remembering to prepend REPO_NAME
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50xmMw.woff2',
@@ -88,4 +89,5 @@ self.addEventListener('activate', (event) => {
         })
     );
     event.waitUntil(self.clients.claim());
+
 });
