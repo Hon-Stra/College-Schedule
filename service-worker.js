@@ -16,7 +16,7 @@ const urlsToCache = [
     `${REPO_NAME}/schedules/eng-ee-1-spring-2026.js`,
     `${REPO_NAME}/schedules/cthm-dhm-1-1stsem-year-1.js`,
     `${REPO_NAME}/schedules/bsba-m-d-1stsem-year-3.js`,
-    `${REPO_NAME}/schedules/bsba-mm-1-c-1stsem-year-1`,
+    `${REPO_NAME}/schedules/bsba-mm-1-c-1stsem-year-1.js`,
     // Add any new schedule files here, remembering to prepend REPO_NAME
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50xmMw.woff2',
@@ -91,3 +91,4 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(self.clients.claim());
 
 });
+
