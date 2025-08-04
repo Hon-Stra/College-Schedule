@@ -3,7 +3,7 @@ export const spring2026Schedule = {
     id: 'eng-ee-1-spring-2026', // Updated ID to match file name
     name: 'Spring 2026 Semester (Example)',
     displayTitleLine1: 'ENGINEERING-EE | Spring 2026 Semester',
-    displayTitleLine2: 'A.Y. 2025-2026 (Example)',
+    displayTitleLine2: 'Year 1 - A.Y. 2025-2026',
     shortId: 'ENG-EE-1',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     courses: [
@@ -27,3 +27,4 @@ export const spring2026Schedule = {
         { time: '3:00 PM', endTime: '4:00 PM', day: 'Friday', name: 'Philosophy', room: 'HUM 201' }
     ]
 };
+
