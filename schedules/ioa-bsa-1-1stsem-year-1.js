@@ -15,7 +15,7 @@ export const firstSemSchedule = {
         // Tuesday Classes
         { time: '09:00 AM', endTime: '12:00 PM', day: 'Tuesday', name: 'FINANCIAL ACCOUNTING & REPORTING 1', room: 'HPSB - 1011' },
         { time: '01:30 PM', endTime: '03:00 PM', day: 'Tuesday', name: 'ECONOMIC DEVELOPMENT', room: 'HPSB - 1014' },
-        { time: '03:00 PM', endTime: '04:30 PM', day: 'Monday', name: 'OPERATION MANAGEMENT AND TQM', room: 'HPSB - 1014' },
+        { time: '03:00 PM', endTime: '04:30 PM', day: 'Tuesday', name: 'OPERATION MANAGEMENT AND TQM', room: 'HPSB - 1014' },
         
         // Thursday Classes
         { time: '09:00 AM', endTime: '10:30 AM', day: 'Thursday', name: 'ART APPRECIATION', room: 'HPSB - 1013' },
@@ -33,5 +33,6 @@ export const firstSemSchedule = {
         { time: '04:30 PM', endTime: '07:30 PM', day: 'Saturday', name: 'CWTS 1', room: 'B3 - 304' }
     ]
 };
+
 
 
