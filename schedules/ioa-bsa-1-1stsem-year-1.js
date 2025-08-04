@@ -8,15 +8,15 @@ export const firstSemSchedule = {
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     courses: [
         // Monday Classes
-        { time: '09:00 AM', endTime: '10:30 AM', day: 'Monday', name: 'ART APPRECIATION', room: 'HPSB - 1013' },
-        { time: '10:30 AM', endTime: '12:00 PM', day: 'Monday', name: 'PURPOSIVE COMMUNICATION', room: 'HPSB - 1014' },
-        { time: '01:30 PM', endTime: '03:00 PM', day: 'Monday', name: 'SCIENCE, TECHNOLOGY AND SOCIETY', room: 'VR' },
-        { time: '03:00 PM', endTime: '04:30 PM', day: 'Monday', name: 'OPERATION MANAGEMENT AND TQM', room: 'HPSB - 1014' },
+        { time: '09:00 AM', endTime: '10:30 AM', day: 'Monday', name: 'ART APPRECIATION', room: 'HPSB - 1013 / VR},
+        { time: '10:30 AM', endTime: '12:00 PM', day: 'Monday', name: 'PURPOSIVE COMMUNICATION', room: 'HPSB - 1014 / VR' },
+        { time: '01:30 PM', endTime: '03:00 PM', day: 'Monday', name: 'SCIENCE, TECHNOLOGY AND SOCIETY', room: 'HPSB - 1014 / VR' },
 
         // Tuesday Classes
         { time: '09:00 AM', endTime: '12:00 PM', day: 'Tuesday', name: 'FINANCIAL ACCOUNTING & REPORTING 1', room: 'HPSB - 1011' },
         { time: '01:30 PM', endTime: '03:00 PM', day: 'Tuesday', name: 'ECONOMIC DEVELOPMENT', room: 'HPSB - 1014' },
-
+        { time: '03:00 PM', endTime: '04:30 PM', day: 'Monday', name: 'OPERATION MANAGEMENT AND TQM', room: 'HPSB - 1014' },
+        
         // Thursday Classes
         { time: '09:00 AM', endTime: '10:30 AM', day: 'Thursday', name: 'ART APPRECIATION', room: 'HPSB - 1013' },
         { time: '10:30 AM', endTime: '12:00 PM', day: 'Thursday', name: 'PURPOSIVE COMMUNICATION', room: 'HPSB - 1014' },
@@ -33,3 +33,4 @@ export const firstSemSchedule = {
         { time: '04:30 PM', endTime: '07:30 PM', day: 'Saturday', name: 'CWTS 1', room: 'B3 - 304' }
     ]
 };
+
