@@ -8,7 +8,7 @@ export const firstSemSchedule = {
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     courses: [
         // Monday Classes
-        { time: '09:00 AM', endTime: '10:30 AM', day: 'Monday', name: 'ART APPRECIATION', room: 'HPSB - 1013 / VR},
+        { time: '09:00 AM', endTime: '10:30 AM', day: 'Monday', name: 'ART APPRECIATION', room: 'HPSB - 1013 / VR' },
         { time: '10:30 AM', endTime: '12:00 PM', day: 'Monday', name: 'PURPOSIVE COMMUNICATION', room: 'HPSB - 1014 / VR' },
         { time: '01:30 PM', endTime: '03:00 PM', day: 'Monday', name: 'SCIENCE, TECHNOLOGY AND SOCIETY', room: 'HPSB - 1014 / VR' },
 
@@ -33,4 +33,5 @@ export const firstSemSchedule = {
         { time: '04:30 PM', endTime: '07:30 PM', day: 'Saturday', name: 'CWTS 1', room: 'B3 - 304' }
     ]
 };
+
 
